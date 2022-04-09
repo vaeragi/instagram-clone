@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View, StyleSheet, Button} from 'react-native';
 import TnCPolicy from './src/common/TnCPolicy';
-import CustomModal from './src/common/CustomModal';
-import InputField from './src/common/InputField';
+import {IModal, IText, ITextInput} from './src/common';
 
 const App = () => {
   const [userName, setUserName] = useState('');
@@ -10,7 +9,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <InputField
+        <ITextInput
           value={userName}
           placeholder="Email"
           onChangeText={text => setUserName(text)}
@@ -19,9 +18,17 @@ const App = () => {
         />
       </View>
       <Button title="Open Modal" onPress={() => setModalVisible(true)} />
-      <CustomModal visible={modalVisible}>
-        <TnCPolicy />
-      </CustomModal>
+      <IText>
+        <IText hyperlink onPress={() => console.log('hello world!!')}>
+          {' '}
+          Hey Everyone
+        </IText>
+        Hello
+      </IText>
+      <TnCPolicy onPress={() => setModalVisible(false)} />
+      <IModal visible={modalVisible}>
+        <TnCPolicy onPress={() => setModalVisible(false)} />
+      </IModal>
     </SafeAreaView>
   );
 };

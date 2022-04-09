@@ -1,15 +1,16 @@
+/* eslint-disable react/forbid-elements */
 import React from 'react';
 import {TextInput, ViewStyle, TextStyle, KeyboardType} from 'react-native';
 
-interface Props {
+type Props = {
   value: string;
   placeholder?: string;
   onChangeText?: (text: string) => void;
   style?: ViewStyle | TextStyle;
   keyboardType: KeyboardType;
-}
+};
 
-function InputField(props: Props) {
+function ITextInput(props: Props) {
   return (
     <TextInput
       onChangeText={props.onChangeText}
@@ -21,4 +22,4 @@ function InputField(props: Props) {
   );
 }
 
-export default InputField;
+export default ITextInput;

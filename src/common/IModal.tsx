@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-elements */
 import React from 'react';
 import {Modal, StyleSheet, View} from 'react-native';
 
@@ -6,7 +7,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const CustomModal = (props: Props) => {
+const IModal = (props: Props) => {
   return (
     <Modal visible={props.visible} transparent={true} animationType={'slide'}>
       <View style={styles.container}>
@@ -16,7 +17,7 @@ const CustomModal = (props: Props) => {
   );
 };
 
-export default CustomModal;
+export default IModal;
 
 const styles = StyleSheet.create({
   container: {

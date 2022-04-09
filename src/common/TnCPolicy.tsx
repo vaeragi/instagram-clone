@@ -1,19 +1,69 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Pressable} from 'react-native';
+import IText from './IText';
 
-const TnCPolicy = () => {
+type Props = {
+  onPress: () => void;
+};
+
+const TnCPolicy = ({onPress}: Props) => {
   return (
-    <View style={{width: '50%'}}>
-      <Text>Terms and Data Policy</Text>
-      <Text>
-        By clicking continue, you agree to our Terms and Privacy Policy. We use
-        a service taht's pre-installed on your device.
-      </Text>
-      <TouchableOpacity style={{backgroundColor: 'white'}}>
-        <Text>Continue</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <IText size={22} type={'Bold'} style={styles.header}>
+        Terms and Data Policy
+      </IText>
+      <IText style={styles.content}>
+        By clicking continue, you agree to our{' '}
+        <IText hyperlink onPress={() => console.log('clicked')}>
+          Terms
+        </IText>{' '}
+        and{' '}
+        <IText hyperlink onPress={() => console.log('clicked PP')}>
+          Privacy Policy
+        </IText>
+        . We use a service that's pre-installed on your device to auto-update
+        apps. You can turn off the service at anytime.{' '}
+        <IText hyperlink onPress={() => console.log('clicked LM')}>
+          Learn more.
+        </IText>
+      </IText>
+      <Pressable style={styles.continueButton} onPress={onPress}>
+        <IText type="Bold" size={15} style={styles.buttonText}>
+          Continue
+        </IText>
+      </Pressable>
     </View>
   );
 };
 
 export default TnCPolicy;
+
+const styles = StyleSheet.create({
+  container: {
+    width: '60%',
+  },
+  header: {
+    textAlign: 'center',
+    paddingTop: 24,
+    paddingBottom: 10,
+    paddingHorizontal: 50,
+  },
+  content: {
+    margin: 24,
+    marginHorizontal: 26,
+    marginTop: 0,
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  continueButton: {
+    backgroundColor: 'white',
+    borderTopWidth: 0.5,
+    justifyContent: 'center',
+    paddingVertical: 12,
+    borderColor: '#dbdbdb',
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#0095F6',
+  },
+});
