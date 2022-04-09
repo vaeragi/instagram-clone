@@ -13,4 +13,25 @@ module.exports = {
       },
     },
   ],
+  rules: {
+    'react/forbid-elements': [
+      'error',
+      {
+        forbid: [
+          {
+            element: 'Text',
+            message: 'use <IText> instead',
+          },
+          {
+            element: 'TextInput',
+            message: 'use <ITextInput> instead',
+          },
+          {
+            element: 'Modal',
+            message: 'use <IModal> instead',
+          },
+        ],
+      },
+    ],
+  },
 };
