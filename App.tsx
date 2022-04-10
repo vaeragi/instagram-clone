@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View, StyleSheet, Button} from 'react-native';
-import TnCPolicy from './src/common/TnCPolicy';
-import {IModal, IText, ITextInput} from './src/common';
+import PolicyInfo from './src/components/PolicyInfo';
+import {IModal, ITextInput} from './src/common';
 
 const App = () => {
   const [userName, setUserName] = useState('');
@@ -18,16 +18,8 @@ const App = () => {
         />
       </View>
       <Button title="Open Modal" onPress={() => setModalVisible(true)} />
-      <IText>
-        <IText hyperlink onPress={() => console.log('hello world!!')}>
-          {' '}
-          Hey Everyone
-        </IText>
-        Hello
-      </IText>
-      <TnCPolicy onPress={() => setModalVisible(false)} />
       <IModal visible={modalVisible}>
-        <TnCPolicy onPress={() => setModalVisible(false)} />
+        <PolicyInfo onPress={() => setModalVisible(false)} />
       </IModal>
     </SafeAreaView>
   );

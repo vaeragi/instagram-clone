@@ -1,42 +1,43 @@
 import React from 'react';
 import {View, StyleSheet, Pressable} from 'react-native';
-import IText from './IText';
+import IText from '../common/IText';
+import Colors from '../utils/constants/Colors';
+import Strings from '../utils/constants/Strings';
 
 type Props = {
   onPress: () => void;
 };
 
-const TnCPolicy = ({onPress}: Props) => {
+const PolicyInfo = ({onPress}: Props) => {
   return (
     <View style={styles.container}>
       <IText size={22} type={'Bold'} style={styles.header}>
-        Terms and Data Policy
+        {Strings.termsAndDataPolicy}
       </IText>
       <IText style={styles.content}>
-        By clicking continue, you agree to our{' '}
+        {Strings.termsAndDataPolicyText1}
         <IText hyperlink onPress={() => console.log('clicked')}>
-          Terms
-        </IText>{' '}
-        and{' '}
-        <IText hyperlink onPress={() => console.log('clicked PP')}>
-          Privacy Policy
+          {Strings.terms}
         </IText>
-        . We use a service that's pre-installed on your device to auto-update
-        apps. You can turn off the service at anytime.{' '}
+        {Strings.and}
+        <IText hyperlink onPress={() => console.log('clicked PP')}>
+          {Strings.privacyPolicy}
+        </IText>
+        {Strings.termsAndDataPolicyText2}
         <IText hyperlink onPress={() => console.log('clicked LM')}>
-          Learn more.
+          {Strings.learnMore}.
         </IText>
       </IText>
       <Pressable style={styles.continueButton} onPress={onPress}>
         <IText type="Bold" size={15} style={styles.buttonText}>
-          Continue
+          {Strings.continue}
         </IText>
       </Pressable>
     </View>
   );
 };
 
-export default TnCPolicy;
+export default PolicyInfo;
 
 const styles = StyleSheet.create({
   container: {
@@ -64,6 +65,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    color: '#0095F6',
+    color: Colors.blue,
   },
 });
