@@ -3,11 +3,11 @@ import React from 'react';
 import {TextInput, ViewStyle, TextStyle, KeyboardType} from 'react-native';
 
 type Props = {
-  value: string;
+  value?: string;
   placeholder?: string;
   onChangeText?: (text: string) => void;
   style?: ViewStyle | TextStyle;
-  keyboardType: KeyboardType;
+  keyboardType?: KeyboardType;
 };
 
 function ITextInput(props: Props) {

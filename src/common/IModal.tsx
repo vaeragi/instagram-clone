@@ -3,8 +3,8 @@ import React from 'react';
 import {Modal, StyleSheet, View} from 'react-native';
 
 interface Props {
-  visible: boolean;
-  children: React.ReactNode;
+  visible?: boolean;
+  children?: React.ReactNode;
 }
 
 const IModal = (props: Props) => {
